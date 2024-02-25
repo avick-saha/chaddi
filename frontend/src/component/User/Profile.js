@@ -4,7 +4,7 @@ import MetaData from "../layout/MetaData";
 import Loader from "../layout/Loader/Loader";
 import { Link } from "react-router-dom";
 import "./Profile.css";
-import avatar1 from "../../images/avatar2.png";
+import avatar from "../../images/avatar.jpg";
 
 const Profile = ({ history }) => {
   const { user, loading, isAuthenticated } = useSelector((state) => state.user);
@@ -29,7 +29,7 @@ const Profile = ({ history }) => {
           <div className="profileContainer">
             <div>
               <h1>My Profile</h1>
-              <img src={avatar1} alt={user.name} />
+              <img src={avatar} alt={user.name} />
               <Link to="/me/update">Edit Profile</Link>
               <button className="backButton" onClick={handleBackToProducts}>Back</button>
             </div>
