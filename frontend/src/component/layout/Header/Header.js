@@ -97,7 +97,7 @@ import { useHistory, Link } from "react-router-dom";
 const Header = () => {
   const [keyword, setKeyword] = useState("");
   const history = useHistory();
-  
+
 
   const searchSubmitHandler = (e) => {
     e.preventDefault();
@@ -115,8 +115,8 @@ const Header = () => {
   return (
     <nav className="navbar navbar-expand-lg bg-body-tertiary">
       <div className="container-fluid">
-        <Link className="navbar-brand" to="#">
-          NUmunch
+        <Link className="navbar-brand" to="/">
+          <span>NU</span>munch
         </Link>
         <button
           className="navbar-toggler"
@@ -131,11 +131,6 @@ const Header = () => {
         </button>
         <div className="collapse navbar-collapse" id="navbarSupportedContent">
           <ul className="navbar-nav me-auto mb-2 mb-lg-0">
-            <li className="nav-item">
-              <Link className="nav-link active" aria-current="page" to="/">
-                Home
-              </Link>
-            </li>
             <li className="nav-item">
               <Link className="nav-link" to="/products">
                 Products
@@ -154,11 +149,6 @@ const Header = () => {
             <li className="nav-item">
               <Link className="nav-link" to="/login">
                 Login
-              </Link>
-            </li>
-            <li className="nav-item">
-              <Link className="nav-link" to="/cart">
-                Cart
               </Link>
             </li>
           </ul>
