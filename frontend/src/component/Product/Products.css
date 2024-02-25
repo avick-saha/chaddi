@@ -21,20 +21,24 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  margin-top: 0.05px; /* Adjust margin as needed */
+  margin-top: 0.05px;
+  /* Adjust margin as needed */
 }
 
 .price-inputs input {
-  width: 40px; /* Adjust width as needed */
+  width: 40px;
+  /* Adjust width as needed */
   padding: 5px;
-  font-size: 14px; /* Adjust font size as needed */
+  font-size: 14px;
+  /* Adjust font size as needed */
   border: 1px solid #ccc;
   border-radius: 3px;
   text-align: center;
 }
 
 .price-inputs span {
-  margin: 15px 0; /* Adjust margin as needed */
+  margin: 15px 0;
+  /* Adjust margin as needed */
 }
 
 .filterBox {
@@ -45,21 +49,29 @@
 }
 
 .filterBox button[type="submit"] {
-  background-color: tomato; /* Change the background color */
-  color: white; /* Change the text color */
+  background-color: tomato;
+  /* Change the background color */
+  color: white;
+  /* Change the text color */
   border: none;
-  padding: 14px 30px; /* Adjust padding as needed */
-  font-size: 16px; /* Adjust font size as needed */
+  padding: 14px 30px;
+  /* Adjust padding as needed */
+  font-size: 16px;
+  /* Adjust font size as needed */
   cursor: pointer;
-  transition: background-color 0.3s ease; /* Add transition effect */
-  height: 5px; /* Adjust height as needed */
-  line-height: 0px; /* Center text vertically */
+  transition: background-color 0.3s ease;
+  /* Add transition effect */
+  height: 5px;
+  /* Adjust height as needed */
+  line-height: 0px;
+  /* Center text vertically */
   margin-bottom: 8px;
   border-radius: 50px;
 }
 
 .filterBox button[type="submit"]:hover {
-  background-color: #0d6efd; /* Change the background color on hover */
+  background-color: #0d6efd;
+  /* Change the background color on hover */
   transition: all 0.5s;
 }
 
@@ -80,14 +92,15 @@
   color: tomato;
 }
 
-.filterBox > fieldset {
+.filterBox>fieldset {
   border: 1px solid rgba(0, 0, 0, 0.329);
 }
 
 .paginationBox {
   display: flex;
   justify-content: center;
-  margin: 6vmax;
+  margin: 20px 0;
+  /* Increased margin for better spacing */
 }
 
 .pagination {
@@ -97,6 +110,47 @@
 }
 
 .page-item {
+  margin: 0 5px;
+  /* Add spacing between pagination items */
+  list-style: none;
+  /* Remove default list styling */
+}
+
+.page-link {
+  color: #333;
+  /* Set text color */
+  background-color: #fff;
+  /* Set background color */
+  border: 1px solid #ccc;
+  /* Add border to page links */
+  border-radius: 20px;
+  /* Round the corners */
+  padding: 8px 12px;
+  /* Add padding for better click area */
+  text-decoration: none;
+  /* Remove default underline */
+  transition: background-color 0.3s ease, color 0.3s ease;
+  /* Add transition for smooth hover effect */
+  font-family: 'Arial', sans-serif;
+  /* Choose an elegant font */
+}
+
+.page-link:hover {
+  background-color: #f0f0f0;
+  /* Change background color on hover */
+}
+
+.pageItemActive .page-link {
+  background-color: #007bff;
+  /* Change background color of active page */
+  color: #fff;
+  /* Change text color of active page */
+  border-color: #007bff;
+  /* Change border color of active page */
+}
+
+
+.page-item {
   background-color: rgb(255, 255, 255);
   list-style: none;
   border: 1px solid rgba(0, 0, 0, 0.178);
@@ -104,6 +158,7 @@
   transition: all 0.3s;
   cursor: pointer;
 }
+
 .page-item:first-child {
   border-radius: 5px 0 0 5px;
 }
@@ -111,6 +166,7 @@
 .page-item:last-child {
   border-radius: 0 5px 5px 0;
 }
+
 .page-link {
   text-decoration: none;
   font: 300 0.7vmax "Roboto";
@@ -144,6 +200,7 @@
   .page-link {
     font: 300 1.7vmax "Roboto";
   }
+
   .category-link {
     font: 400 1.8vmax "Roboto";
   }
