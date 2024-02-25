@@ -28,105 +28,24 @@ const ConfirmOrder = ({ history }) => {
     const data = {
       user: user,
       cartItems: cartItems,
-      shippingCharges : shippingCharges,
-      totalPrice : totalPrice,
-      shippingInfo : shippingInfo,
-      tax : tax,
+      shippingCharges: shippingCharges,
+      totalPrice: totalPrice,
+      shippingInfo: shippingInfo,
+      tax: tax,
     };
-  
+
     console.log(data);
-    axios.post('http://localhost:4000/api/v1/create-checkout-session', {data})
+    axios.post('http://localhost:4000/api/v1/create-checkout-session', { data })
       .then((res) => {
         console.log(res);
         if (res.data.url) {
           window.location.href = res.data.url;
         }
       })
-      .catch((error) => console.log(error)); 
+      .catch((error) => console.log(error));
   };
 
 
-
-
-  // const proceedToRazorpayPayment = async (e) => {
-  //   const amount = totalPrice * 1000;
-  //   const currency = "INR";
-  //   const receiptId = "qwsaq1";
-  //   const data = {
-  //     user: user,
-  //     cartItems: cartItems,
-  //     shippingCharges : shippingCharges,
-  //     totalPrice : totalPrice,
-  //     shippingInfo : shippingInfo,
-  //     tax : tax,
-  //   };
-  //   const response = await fetch("http://localhost:4000/api/v1/process-payment-razorpay", {
-  //     method: "POST",
-  //     body: JSON.stringify({
-  //       amount,
-  //       currency,
-  //       receipt: receiptId,
-  //       data
-  //     }),
-  //     headers: {
-  //       "Content-Type": "application/json",
-  //     },
-  //   });
-  //   const order = await response.json();
-  //   console.log(order);
-
-  //   var options = {
-  //     key: "rzp_test_E6ALvvisDKdfNS", // Enter the Key ID generated from the Dashboard
-  //     amount, // Amount is in currency subunits. Default currency is INR. Hence, 50000 refers to 50000 paise
-  //     currency,
-  //     name: "Acme Corp", //your business name
-  //     description: "Test Transaction",
-  //     image: "https://example.com/your_logo",
-  //     order_id: order.id, //This is a sample Order ID. Pass the `id` obtained in the response of Step 1
-  //     handler: async function (response) {
-  //       const body = {
-  //         ...response,
-  //       };
-
-  //       const validateRes = await fetch(
-  //         "http://localhost:4000/api/v1/validate-payment-razorpay",
-  //         {
-  //           method: "POST",
-  //           body: JSON.stringify(body),
-  //           headers: {
-  //             "Content-Type": "application/json",
-  //           },
-  //         }
-  //       );
-  //       const jsonRes = await validateRes.json();
-  //       console.log(jsonRes);
-  //     },
-  //     prefill: {
-  //       //We recommend using the prefill parameter to auto-fill customer's contact information, especially their phone number
-  //       name: "Web Dev Matrix", //your customer's name
-  //       email: "webdevmatrix@example.com",
-  //       contact: "9000000000", //Provide the customer's phone number for better conversion rates
-  //     },
-  //     notes: {
-  //       address: "Razorpay Corporate Office",
-  //     },
-  //     theme: {
-  //       color: "#3399cc",
-  //     },
-  //   };
-  //   var rzp1 = new window.Razorpay(options);
-  //   rzp1.on("payment.failed", function (response) {
-  //     alert(response.error.code);
-  //     alert(response.error.description);
-  //     alert(response.error.source);
-  //     alert(response.error.step);
-  //     alert(response.error.reason);
-  //     alert(response.error.metadata.order_id);
-  //     alert(response.error.metadata.payment_id);
-  //   });
-  //   rzp1.open();
-  //   e.preventDefault();
-  // };
 
   const proceedToRazorpayPayment = async (e) => {
     const amount = subtotal * 100; // Correcting the amount calculation (remove the extra zero)
@@ -135,11 +54,12 @@ const ConfirmOrder = ({ history }) => {
     const data = {
       user: user,
       cartItems: cartItems,
-      shippingCharges : shippingCharges,
-      totalPrice : totalPrice,
-      shippingInfo : shippingInfo,
-      tax : tax,
+      shippingCharges: shippingCharges,
+      totalPrice: totalPrice,
+      shippingInfo: shippingInfo,
+      tax: tax,
     };
+
     try {
       // Step 1: Create Order
       const orderResponse = await fetch("http://localhost:4000/api/v1/process-payment-razorpay", {
@@ -181,6 +101,15 @@ const ConfirmOrder = ({ history }) => {
             const jsonRes = await validateResponse.json();
             console.log(jsonRes); // this line shows the error message
 
+            // Check if payment is successful
+            if (jsonRes.success) {
+              // Redirect to success page
+              window.location.href = "http://localhost:3000/success";
+            } else {
+              // Handle unsuccessful payment (e.g., show error message to the user)
+              console.log("Payment unsuccessful: ", jsonRes.message);
+            }
+
           } catch (error) {
             console.error('Error:', error);
             // Handle error (e.g., show error message to the user)
@@ -214,9 +143,7 @@ const ConfirmOrder = ({ history }) => {
       console.error('Error:', error);
       // Handle error (e.g., show error message to the user)
     }
-};
-
-
+  };
 
 
   return (
