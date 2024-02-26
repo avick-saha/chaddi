@@ -1,24 +1,15 @@
 .loading {
   width: 100vw;
   height: 100vh;
-  background-color: white;
   display: grid;
   place-items: center;
   max-width: 100%;
+  animation: fadeIn 2s ease-out; /* Adding a fade-in animation with a 2-second delay */
 }
 
-.loading > div {
+.loading > img {
   width: 10vmax;
-  height: 10vmax;
-  border-bottom: 5px solid rgba(0, 0, 0, 0.719);
-
-  border-radius: 50%;
-
-  animation: loadingRotate 800ms linear infinite;
-}
-
-@keyframes loadingRotate {
-  to {
-    transform: rotateZ(-360deg);
-  }
+  height: 5vmax;
+ /* Initially set opacity to 0 */
+  animation: fadeInImg 800ms linear infinite, loaderRotate 2s linear; /* Adding a rotation animation with a 2-second delay */
 }
