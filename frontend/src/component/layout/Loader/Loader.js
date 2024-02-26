@@ -1,10 +1,11 @@
 import React from "react";
+import loaderGIF from "../../../images/loader.gif";
 import "./Loader.css";
 
 const Loader = () => {
   return (
     <div className="loading">
-      <div></div>
+       <img src={loaderGIF} alt="loader" />
     </div>
   );
 };
