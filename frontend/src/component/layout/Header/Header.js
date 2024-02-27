@@ -151,6 +151,25 @@ const Header = () => {
                 Login
               </Link>
             </li>
+
+            <li className="nav-item">
+              <Link className="nav-link" to="/cart">
+                Cart
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link className="nav-link" to="/policy">
+                Privacy Policy
+              </Link>
+            </li>
+
+            <li className="nav-item">
+              <Link className="nav-link" to="/tnc">
+                Terms and Conditions
+              </Link>
+            </li>
+            
           </ul>
           <form className="d-flex" onSubmit={searchSubmitHandler}>
             <input
