@@ -43,6 +43,7 @@ import Contact from "./component/layout/Contact/Contact";
 import About from "./component/layout/About/About";
 import NotFound from "./component/layout/Not Found/NotFound";
 import policy from "./component/layout/Header/Privacypolicy.js";
+import tnc from "./component/layout/Header/TnC.js";
 
 function App() {
   const { isAuthenticated, user } = useSelector((state) => state.user);
@@ -90,6 +91,8 @@ function App() {
         <Route exact path="/search" component={Search} />
 
         <Route exact path = "/policy" component={policy} />
+        
+        <Route exact path = "/tnc" component={tnc} />
 
         <Route exact path="/contact" component={Contact} />
 
