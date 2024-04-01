@@ -57,7 +57,7 @@ const Shipping = ({ history }) => {
               <HomeIcon />
               <input
                 type="text"
-                placeholder="Address"
+                placeholder="Room Number"
                 required
                 value={address}
                 onChange={(e) => setAddress(e.target.value)}
@@ -68,7 +68,7 @@ const Shipping = ({ history }) => {
               <LocationCityIcon />
               <input
                 type="text"
-                placeholder="City"
+                placeholder="Hostel (UG-1, UG-2, PG-1, PG-2)"
                 required
                 value={city}
                 onChange={(e) => setCity(e.target.value)}
